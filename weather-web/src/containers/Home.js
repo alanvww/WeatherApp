@@ -4,12 +4,11 @@ import axios from 'axios';
 import WeatherCard from '../components/WeatherCard';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { WEATHER_API_KEY, MAPBOX_API_KEY } from '../components/API_KEY';
 import WeatherImage from '../components/WeatherImage';
 import Footer from '../components/Footer';
 
 // Set the Mapbox access token
-mapboxgl.accessToken = MAPBOX_API_KEY;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
 
 // Custom hook to parse the query parameters
 function useQuery() {
@@ -62,8 +61,8 @@ function Home() {
 		setIsLoading(true); // Set loading to true when starting to fetch data
 		const { latitude, longitude } = coords;
 		const URL = city
-			? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
-			: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}`;
+			? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+			: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 
 		axios
 			.get(URL)
