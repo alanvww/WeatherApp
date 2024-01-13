@@ -1,0 +1,2 @@
+ [build.environment]
+     BUN_FLAGS = ""
