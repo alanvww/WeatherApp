@@ -108,6 +108,7 @@ function Home() {
 		if (inputCity && !savedCities.includes(inputCity)) {
 			setSavedCities([...savedCities, inputCity]);
 			setInputCity('');
+			setMenuExpanded(true);
 		}
 	};
 
@@ -176,7 +177,7 @@ function Home() {
 					<button className="expandMenuButton" onClick={toggleMenu}>
 						Saved Cities
 					</button>
-					{(menuExpanded || savedCities.length > 0) && (
+					{menuExpanded && (
 						<div className="popupMenu">
 							{savedCities.length === 0 && <span>No saved cities yet!</span>}
 							{savedCities.length > 0 && (
