@@ -53,7 +53,9 @@ nav {
 .popupMenu {
 	height: fit-content;
 	width: fit-content;
-	position: relative; /* or 'fixed' depending on your layout */
+	position: absolute; /* or 'fixed' depending on your layout */
+	top: anchor(bottom);
+	left: anchor(right);
 	background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
 	backdrop-filter: blur(10px); /* Glass effect */
 	-webkit-backdrop-filter: blur(10px); /* For Safari */

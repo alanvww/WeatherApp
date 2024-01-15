@@ -174,11 +174,15 @@ function Home() {
 
 				<div>
 					{' '}
-					<button className="expandMenuButton" onClick={toggleMenu}>
+					<button
+						className="expandMenuButton"
+						id="cityButton"
+						onClick={toggleMenu}
+					>
 						Saved Cities
 					</button>
 					{menuExpanded && (
-						<div className="popupMenu">
+						<div anchor={'cityButton'} className="popupMenu">
 							{savedCities.length === 0 && <span>No saved cities yet!</span>}
 							{savedCities.length > 0 && (
 								<ul className="cityList">
